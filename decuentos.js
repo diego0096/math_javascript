@@ -13,6 +13,11 @@ const btn3 = document.querySelector('#calcu');
 const inputPr = document.querySelector('#pr');
 const pRes = document.querySelector('#resul')
 
+const inCoupon = document.querySelector('#cupou')
+const btn4 = document.querySelector('#calcul');
+const inputPre = document.querySelector('#prec');
+const pResul = document.querySelector('#results')
+
 /* const arr = [
     {
         cupon: 'hola',
@@ -35,9 +40,13 @@ btn2.addEventListener('click', calcularCupon);
 
 btn3.addEventListener('click', cuponObj)
 
+btn4.addEventListener('click', cuponArray)
+
 function calcularCupon() {
     const precio = Number(inputPrecio.value);
     const cupon = inputCupon.value;
+
+    console.log(cupon)
 
     if (!precio || !cupon) {
         pResultado.innerText = 'Por favor llena el formulario';
@@ -58,6 +67,7 @@ function calcularCupon() {
     const nuevoPrecio = (precio * (100 - cupon)) / 100;
 
     pResultado.innerText = 'El nuevo precio con descuento es $' + nuevoPrecio;
+    console.log(nuevoPrecio, cupon, precio)
 }
 
 function calcularPrecioConDescuento() {
@@ -116,3 +126,45 @@ couponList.push({
     name: 'diego',
     discount: 30
 })
+
+couponList.push({
+    name: 'felipe',
+    discount: 15
+})
+
+function cuponArray() {
+    const preci = Number(inputPre.value)
+    const coupou = inCoupon.value;
+
+    if (!preci || !coupou) {
+        pResul.innerText = 'Por favor llena el formulario';
+        return;
+    }
+
+    let descu;
+
+    function isCouponInArray(couponElement) {
+        return couponElement.name == coupou
+    }
+
+    const couponInArray = couponList.find(isCouponInArray)
+
+    /* const couponInArray = couponList.filter(isCouponInArray) */
+
+    if (couponInArray) {
+        descu = couponInArray.descu
+    } else {
+        pResul.innerText = 'Cupon invalido';
+    }
+
+    /* if (couponInArray.length > 0) {
+        descu = couponInArray[0].descu
+    } else {
+        pResul.innerText = 'Cupon invalido';
+    } */
+
+    console.log(preci, coupou)
+
+    const newPa = (preci * (100 - coupou)) / 100;
+    pResul.innerText = 'El precio con descuento es' + newPa;
+}
