@@ -68,7 +68,7 @@ const areaCirculo = (radioCirculo ** 2) * PI;
 
 function calcularCirculo(radio) {
     const diametro = radio * 2;
-    const radioAlCuadrado = Math.pow(raio, 2);
+    const radioAlCuadrado = Math.pow(radio, 2);
     return {
         circunferencia: diametro * Math.PI,
         area: radioAlCuadrado * Math.PI
