@@ -12,7 +12,7 @@ function calcularPromedio(lista) {
 }
 
 
-function calcProm(list) {
+/* function calcProm(list) {
     function sumarTodosElementos(valorAcumulado, nuevoValor) {
         return valorAcumulado + nuevoValor;
     }
@@ -21,7 +21,7 @@ function calcProm(list) {
     const prom = sumList / list.length;
     console.log(prom);
     return prom
-}
+} */
 
 function esPar(lists) {
     return !(lists.length % 2)
@@ -30,7 +30,8 @@ function esImpar(lists) {
     return lists.length % 2;
 }
 
-function calcularMediana(lists) {
+function calcularMediana(listaDesordenada) {
+    const lists = ordenarLista(listaDesordenada);
     const listaEsPar = esPar(lists);
 
     if (listaEsPar) {
@@ -56,5 +57,22 @@ function calcularMediana(lists) {
 calcularMediana([10, 20, 30, 40])
 
 
-const arr = [1, 6, 2, 7, 5, 4, 9]
+function ordenarLista(listaDesordenada) {
+    function ordenarListaSort(valorAcumulado, nuevoValor){
+        if (valorAcumulado > nuevoValor) {
+            return 1;
+        } else if (valorAcumulado == nuevoValor) {
+            return 0;
+        } else if (valorAcumulado < nuevoValor) {
+            return -1;
+        }
 
+        //Otra forma de hacer el ordenamiento sin las condicionales
+        return valorAcumulado - nuevoValor;
+        //Lista al reves
+        return nuevoValor - valorAcumulado;
+    }
+
+    const lista = listaDesordenada.sort(ordenarListaSort)
+    return lista;
+}
