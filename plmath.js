@@ -12,7 +12,7 @@ function calcularPromedio(lista) {
 }
 
 
-/* function calcProm(list) {
+function calcProm(list) {
     function sumarTodosElementos(valorAcumulado, nuevoValor) {
         return valorAcumulado + nuevoValor;
     }
@@ -21,13 +21,13 @@ function calcularPromedio(lista) {
     const prom = sumList / list.length;
     console.log(prom);
     return prom
-} */
 
-function esPar(lists) {
-    return !(lists.length % 2)
-}
-function esImpar(lists) {
-    return lists.length % 2;
+    function esPar(lists) {
+        return !(lists.length % 2)
+    }
+    function esImpar(lists) {
+        return lists.length % 2;
+    }
 }
 
 function calcularMediana(listaDesordenada) {
@@ -58,7 +58,7 @@ calcularMediana([10, 20, 30, 40])
 
 
 function ordenarLista(listaDesordenada) {
-    function ordenarListaSort(valorAcumulado, nuevoValor){
+    function ordenarListaSort(valorAcumulado, nuevoValor) {
         if (valorAcumulado > nuevoValor) {
             return 1;
         } else if (valorAcumulado == nuevoValor) {
@@ -76,3 +76,9 @@ function ordenarLista(listaDesordenada) {
     const lista = listaDesordenada.sort(ordenarListaSort)
     return lista;
 }
+
+
+const arr = [2, 4, 6, 1, 3, 5,]
+
+const orden = arr.sort()
+console.log(orden)
