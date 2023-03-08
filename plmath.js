@@ -88,10 +88,27 @@ function calcularModa(lista) {
         }
     }
     console.log(listaCount);
+
+    const listaArray = Object.entries(listaCount)
+    const listaOrdenada = ordenarListaBidimensional(listaArray, 1);
+    const listaMaxNumber = listaOrdenada[listaOrdenada.length - 1]
+    /* console.log({listaArray, listaCount, listaOrdenada, listaMaxNumber}); */
+    /* console.log('La moda es: ' + listaMaxNumber[0]); */
+    const listaMaxNumberAnt = listaOrdenada[listaOrdenada.length - 2]
+
+    if(listaMaxNumber[1] === listaMaxNumberAnt[1]) {
+        var moda = 'No hay moda'
+    } else {
+        var moda = listaMaxNumber[0];
+    }
+    return moda;
 }
 
+function ordenarListaBidimensional(listaDesordenada, i) {
+    function ordenarListaSort2(valorAcumulado, nuevoValor) {
+        return valorAcumulado[i] - nuevoValor[i];
+    }
 
-const arr = [2, 4, 6, 1, 3, 5,]
-
-const orden = arr.sort()
-console.log(orden)
+    const lista = listaDesordenada.sort(ordenarListaSort2);
+    return lista;
+}
