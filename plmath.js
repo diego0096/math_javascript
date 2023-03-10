@@ -60,9 +60,6 @@ plMath.calcularMediana = function calcularMediana(listaDesordenada) {
     }
 }
 
-/* calcularMediana([10, 20, 30, 40]) */
-
-
 plMath.ordenarLista = function ordenarLista(listaDesordenada) {
     function ordenarListaSort(valorAcumulado, nuevoValor) {
         if (valorAcumulado > nuevoValor) {
