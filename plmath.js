@@ -1,6 +1,13 @@
-function calcularPromedio(lista) {
+class plMath {
+    static esPar(){}
+    static esImpar(){}
+}
 
-    let sumaLista = 0;
+const plMath = {}
+
+plMath.calcularPromedio = function calcularPromedio(lista) {
+
+let sumaLista = 0;
 
     for (let i = 0; i < lista.length; i++) {
         sumaLista = sumaLista + lista[i]
@@ -11,8 +18,14 @@ function calcularPromedio(lista) {
     return promedio
 }
 
+plMath.esPar = function esPar(lists) { 
+    return !(lists.length % 2)
+}
+plMath.esImpar = function esImpar(lists) {
+    return lists.length % 2;
+}
 
-function calcProm(list) {
+plMath.calcProm = function calcProm(list) {
     function sumarTodosElementos(valorAcumulado, nuevoValor) {
         return valorAcumulado + nuevoValor;
     }
@@ -21,16 +34,9 @@ function calcProm(list) {
     const prom = sumList / list.length;
     console.log(prom);
     return prom
-
-    function esPar(lists) {
-        return !(lists.length % 2)
-    }
-    function esImpar(lists) {
-        return lists.length % 2;
-    }
 }
 
-function calcularMediana(listaDesordenada) {
+plMath.calcularMediana = function calcularMediana(listaDesordenada) {
     const lists = ordenarLista(listaDesordenada);
     const listaEsPar = esPar(lists);
 
@@ -54,10 +60,10 @@ function calcularMediana(listaDesordenada) {
     }
 }
 
-calcularMediana([10, 20, 30, 40])
+/* calcularMediana([10, 20, 30, 40]) */
 
 
-function ordenarLista(listaDesordenada) {
+plMath.ordenarLista = function ordenarLista(listaDesordenada) {
     function ordenarListaSort(valorAcumulado, nuevoValor) {
         if (valorAcumulado > nuevoValor) {
             return 1;
@@ -77,7 +83,7 @@ function ordenarLista(listaDesordenada) {
     return lista;
 }
 
-function calcularModa(lista) {
+plMath.calcularModa = function calcularModa(lista) {
     const listaCount = {};
     for (let i = 0; i < lista.length; i++) {
         const elemento = lista[i];
@@ -104,7 +110,7 @@ function calcularModa(lista) {
     return moda;
 }
 
-function ordenarListaBidimensional(listaDesordenada, i) {
+plMath.ordenarListaBidimensional = function ordenarListaBidimensional(listaDesordenada, i) {
     function ordenarListaSort2(valorAcumulado, nuevoValor) {
         return valorAcumulado[i] - nuevoValor[i];
     }
