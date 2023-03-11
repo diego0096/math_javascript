@@ -1,7 +1,9 @@
-class plMath {
-    static esPar(){}
-    static esImpar(){}
-}
+// class plMath {
+//     static esPar(){}
+//     static esImpar(){}
+//     static calcularMediana(){}
+//     static calcularPromedio(){}
+// }
 
 const plMath = {}
 
@@ -37,8 +39,8 @@ plMath.calcProm = function calcProm(list) {
 }
 
 plMath.calcularMediana = function calcularMediana(listaDesordenada) {
-    const lists = ordenarLista(listaDesordenada);
-    const listaEsPar = esPar(lists);
+    const lists = plMath.ordenarLista(listaDesordenada);
+    const listaEsPar = plMath.esPar(lists);
 
     if (listaEsPar) {
         const indexMitadListaPar1 = (lists.length / 2) - 1;
@@ -49,7 +51,7 @@ plMath.calcularMediana = function calcularMediana(listaDesordenada) {
 
         listaMitades.push(lists[indexMitadListaPar1])
         listaMitades.push(lists[indexMitadListaPar2])
-        const medianaListaPar = calcularPromedio(listaMitades)
+        const medianaListaPar = plMath.calcularPromedio(listaMitades)
         return medianaListaPar;
     } else {
         const indexMitadListaImpar = Math.floor(lists.length / 2);
