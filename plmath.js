@@ -16,7 +16,7 @@ let sumaLista = 0;
     }
 
     const promedio = sumaLista / sumaLista.length;
-    console.log(promedio)
+    // console.log(promedio)
     return promedio
 }
 
