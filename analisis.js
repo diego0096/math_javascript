@@ -107,3 +107,42 @@ function proyeccionPorEmpresa(nombre, year) {
         return nuevaMediana;
     }
 }
+
+//Analisis general
+
+function medianaGeneral() {
+    const listaMedianas = salarios.map(persona => medianaPorPersona(persona.name));
+    // const medianaPorCadaNombre = nombres.map(nombre => medianaPorPersona(nombre))
+    const mediana = plMath.calcularMediana(listaMedianas)
+    return mediana;
+}
+
+function medianaTop10() {
+    const listaMedianas = salarios.map(persona => medianaPorPersona(persona.name));
+    const medianasOrdenadas = plMath.ordenarLista(listaMedianas);
+    const cantidad = listaMedianas.length / 10;
+    const limite = listaMedianas.length - cantidad;
+    
+    const top10 = medianasOrdenadas.slice(limite, medianasOrdenadas.length); // Crea un array con la copia de elementos del array
+    const top_10 = medianasOrdenadas.splice(limite, medianasOrdenadas.length); // Crea un array tomando elemntos del array, lo que tome se elimina del array anteriror
+    console.log({listaMedianas, medianasOrdenadas})
+
+    const medianaTop10 = plMath.calcularMediana(top10);
+    return medianaTop10;
+}
+
+
+const arr = [];
+
+//const ne = prompt('Agrega un nuevo usuario');
+
+const o = 'hola'
+const s  ='llll'
+
+const add = arr.push(o)
+const add2 = arr.map(function() {
+    return arr.push(s);
+})
+
+console.log(arr);
+console.log(add2);
